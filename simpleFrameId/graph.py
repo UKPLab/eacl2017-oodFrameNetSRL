@@ -34,7 +34,7 @@ class DependencyGraph:
             self.G.node[int(x)]["frame"] = predicate_node[1]
             self.G.node[int(x)]["lemmapos"] = predicate_node[2]
             self.predicate_nodes += [int(x)]
-        self.predicate_head = predicate_node[0][0]  # TODO here we have to decide on the predicate node!!
+        self.predicate_head = predicate_node[0][0]
         self.roles = []
         node_groups = {}  #group nodes by role
         for node_id in role_nodes:
@@ -116,7 +116,7 @@ class DependencyGraph:
         return res if len(res) > 0 else None
 
     def get_node_label(self,
-                       node_id):  #TODO lame but will do the job for now. If we only had proper collapsed dependencies!
+                       node_id):
         """ Get node label given the node id
 			If it's a preposition, take the noun it points to! """
         in_rel = self.G.in_edges(node_id)
